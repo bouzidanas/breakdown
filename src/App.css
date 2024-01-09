@@ -1,0 +1,189 @@
+#root .app {
+    margin: 0 auto;
+    padding: 5.7rem 6rem 3rem 6rem;
+    text-align: center;
+}
+  
+@media screen and (max-width: 500px) {
+    #root .app {
+        height: 100vh;
+        padding: 0.8rem;
+    }
+
+}
+
+/* lyr-ix css ----------------- */
+#root .lyrics div.line {
+    line-height: 2.88rem;
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+}
+
+.lyr-ix button {
+    padding: 4px;
+}
+
+.lyr-ix button:first-child {
+    padding:  2px 1px 2px 4px;
+    margin-left: -8px;
+}
+
+.lyr-ix button:last-child {
+    margin-right: -6px;
+
+}
+
+/* .lyr-ix button:hover {
+    background-color: rgba(0, 0, 0, 0.07);
+    border-radius: 50%;
+} */
+
+.lyr-ix button:hover svg {
+    stroke: white;
+}
+
+.birds {
+    border: 3px solid #ef476f;
+    border-radius: 4px;
+}
+  
+.na {
+    border: 3px solid #06d6a0;
+    border-radius: 4px;
+}
+  
+.burial {
+    border: 3px solid #9b5de5;
+    border-radius: 4px;
+}
+  
+.weather {
+    border: 3px solid #0d47a1;
+    border-radius: 4px;
+}
+  
+.hunt {
+    border: 3px solid #ffd166;
+    border-radius: 4px;
+}
+  
+.fruits {
+    border: 3px solid #ffb4a2;
+    border-radius: 4px;
+}
+  
+.layer {
+    padding: 5px 2px;
+}
+  
+.tlayer {
+    padding: 8px 3px;
+}
+
+/* markdown css ----------------- */
+.md-cont:last-child .md-inner {
+    padding-top: 0;
+}
+
+.md-cont:first-child .md-inner {
+    padding-bottom: 0;
+}
+
+.md-inner {
+    /* font-family: 'nunito', sans-serif; */
+    font-size: 1.2rem!important;
+    font-weight: 400;
+    line-height: 1.3!important;
+}
+
+.md-inner h2 {
+    font-size: 1.5rem!important;
+    font-weight: 500!important;
+    margin: 1rem 0;
+
+}
+
+.md-inner a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.md-inner hr {
+    opacity: 0.2;
+    border-width: 1px;
+}
+
+.md-inner blockquote {
+    border-left: 4px solid;
+    padding: 0.1rem 1.5rem;
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.md-inner p {
+    margin: 1.5rem 0;
+}
+
+.md-inner > p:first-child {
+    margin-top: 0;
+}
+
+.md-inner > p:last-child {
+    margin-bottom: 0;
+}
+
+.md-inner ul, .md-inner ol {
+    font-size: 1.14rem!important;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.md-inner ul, .md-inner ol {
+    list-style: none;
+    opacity: 0.85;
+}
+
+.md-inner li {
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.md-inner ul li::before {
+    content: '•';
+    font-weight: 700;
+    margin-right: 0.5rem;
+    opacity: 0.6;
+}
+
+.md-inner ol li::before {
+    font-weight: 700;
+    content: counter(list-item) '.';
+    margin-right: 0.5rem;
+    opacity: 0.5;
+}
+
+/* svg.dot path {
+    transition: all 1.2s ease-in-out;
+    d: path("M11.5 7.5a1 1 0 100 7.5 1 1 0 000-7.5");
+}
+svg.dot.right:hover path {
+    transition: all 1.2s ease-in-out;
+    d: path("M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z");
+} */
+
+[data-tooltip]::before {
+    display: none;
+    position : absolute;
+    padding: 0.5rem;
+    bottom: 3.5rem;
+    width: 8rem;
+    border-radius: 0.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    content : attr(data-tooltip);
+    opacity : 0;
+}
+
+[data-tooltip]:hover::before {
+    display: unset;
+    opacity : 1;
+}
