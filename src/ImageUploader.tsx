@@ -24,7 +24,7 @@ const ImageUploader = ({className, sizeLimit, imagesLoadedCallback}:{className?:
         }
 
         if (rejectedFiles?.length) {
-            console.log(rejectedFiles);
+            // console.log(rejectedFiles);
             setRejected((previousFiles) => [...previousFiles, ...rejectedFiles]);
         }
     }, []);

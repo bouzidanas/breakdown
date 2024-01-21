@@ -43,7 +43,7 @@ const BreakdownUploader = ({className, sizeLimit, breakdownLoadedCallback}:{clas
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("submit");
+        // console.log("submit");
 
         if (!files?.length) return;
         

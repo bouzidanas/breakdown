@@ -52,7 +52,7 @@ const AudioUploader = ({className, sizeLimit, audioLoadedCallback}:{className?:s
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("submit");
+        // console.log("submit");
 
         if (!audioFile?.length) return;
         if (!lrcFile?.length) return;
