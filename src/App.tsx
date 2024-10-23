@@ -58,7 +58,7 @@ const Image = ({src, className}: {src: string, className?: string}) => {
   const [loaded, setLoaded] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
   useEffect(() => {
-      let timer1 = setTimeout(() => {
+      const timer1 = setTimeout(() => {
         if (loaded) imageRef.current!.parentElement!.style.left = "0";
       }, 200);
 
@@ -78,7 +78,7 @@ const Text = ({md, className}: {md: string, className?: string}) => {
   const textRef = useRef<HTMLDivElement>(null);
   useEffect(
     () => {
-      let timer1 = setTimeout(() => {
+      const timer1 = setTimeout(() => {
         textRef.current!.style.opacity = "1";
       }, 200);
       return () => {
@@ -116,6 +116,7 @@ const LyrixBreakdown = ({trackTitle, audioSrc, lrc, breakdown, bgRef, images, mu
     console.log("key change");
     keyChangeCount.current++;
     return keyChangeCount.current;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lrc, audioSrc]);
 
   const handleOnLineChange = (line: number) => {
@@ -128,7 +129,7 @@ const LyrixBreakdown = ({trackTitle, audioSrc, lrc, breakdown, bgRef, images, mu
 
   useEffect(() => {
     if (breakdown[index].color) bgRef.current!.style.backgroundColor = breakdown[index].color!;
-  }, [index])
+  }, [bgRef, breakdown, index])
 
   return (
     <> 
@@ -213,16 +214,15 @@ function App() {
     else if (pagePos === "right") {
       pageSliderRef.current!.style.left = "-200vw";
     }
-  }, [pagePos])
+  }, [breakdownContent, pagePos])
 
 
   useEffect(() => {
     setPageTransition("all 0.7s ease-in-out");
-    const pos = pagePos === "center" ? (slide.type === "left" ? "left" : (slide.type === "right" ? "center" : "center")) : (pagePos === "left" ? (slide.type === "left" || slide.type === "none" ? "left" : "center") : (slide.type === "left" ? "center" : "right"))
-    let timer1 = setTimeout(() => {
-      setPagePos(pos);
+    const timer1 = setTimeout(() => {
+      setPagePos(pagePos => pagePos === "center" ? (slide.type === "left" ? "left" : (slide.type === "right" ? "center" : "center")) : (pagePos === "left" ? (slide.type === "left" || slide.type === "none" ? "left" : "center") : (slide.type === "left" ? "center" : "right")));
     }, 300);
-    let timer2 = setTimeout(() => {
+    const timer2 = setTimeout(() => {
       setPageTransition("none");
     }, 1000);
     
@@ -238,16 +238,16 @@ function App() {
 
   // // test slider
   // useEffect(() => {
-  //   let timer1 = setTimeout(() => {
+  //   const timer1 = setTimeout(() => {
   //     setSlide({type:"right"});
   //   }, 2000);
-  //   let timer2 = setTimeout(() => {
+  //   const timer2 = setTimeout(() => {
   //     setSlide({type:"left"});
   //   }, 5000);
-  //   let timer3 = setTimeout(() => {
+  //   const timer3 = setTimeout(() => {
   //     setSlide({type:"left"});
   //   }, 8000);
-  //   let timer4 = setTimeout(() => {
+  //   const timer4 = setTimeout(() => {
   //     setSlide({type:"right"});
   //   }, 11000);
 

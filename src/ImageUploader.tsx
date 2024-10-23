@@ -8,7 +8,7 @@ interface ImageFile extends File {
     hash?: string;
 }
 
-const ImageUploader = ({className, sizeLimit, imagesLoadedCallback}:{className?:string, sizeLimit?:number, imagesLoadedCallback?:Function}) => {
+const ImageUploader = ({className, sizeLimit, imagesLoadedCallback}:{className?:string, sizeLimit?:number, imagesLoadedCallback?: (images:{[key:string]:string}) => void}) => {
     const [files, setFiles] = useState<ImageFile[]>([]);
     const [rejected, setRejected] = useState<FileRejection[]>([]);
     const imageSrcs = useRef<{[key:string]:string}>({});
